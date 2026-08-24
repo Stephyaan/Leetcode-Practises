@@ -1,0 +1,21 @@
+'''you are given an array of integers 'A' of length 'M', representing amplifiers. Each amplifier 'A[i]' amplifies the input signal such that:
+Output signal = A[i] * input signal
+Amplifiers can only be connected to adjacent amplifiers in 'A'. The task is to select the maximum number of amplifiers to amplify a signal of strength 1 to exactly 'S'. 
+Return the number of amplifiers used, or -1 if it is not possible.
+Example: Input: M = 3, A = {2, 3, 4}, S = 123 ; Output: -1
+Input: M = 5, A = {1, 2, 3, 4, 6}, S = 12 ; Output: 2
+Input: M = 5, A = {2, 1, 3, 4, 6}, S = 12 ; Output: 3'''
+
+def ampl(a,s,m):
+  m=len(a)
+  maxcount=-1
+  for i in range(m):
+    product=1
+      for j in range(1,m):
+        product=product*a[j]
+        if product==s:
+          maxcount=max(maxcount,j-i+1)
+        if product>s:
+          break
+   return maxcount
+https://chatgpt.com/s/t_6a8c75bae4088191a93ab572e0f0d980
