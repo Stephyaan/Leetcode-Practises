@@ -1,1 +1,38 @@
+'''TERRAFORM
+This question accounts for 25% of the total test. Please do not forget to submit your answer, timed -out tests will result in 0 points awarded.
+ Your family recently bought exoplanet TRAPPIST-1E from the Annual Planet Auctions and gave a region of the planet to you. To your surprise, the region you were given was a rocky mountain range A of M mountains with heights H1...HM You decided to terraform the region to make it look exactly like a mountain range B of M mountains with heights G1....GM.
+ For mountain range A to look exactly like B, it array H =array G
+You have access to an infinite supply of explosives that can reduce the height of any mountain by 1 per explosion. The bomb can only be dropped in between consecutive mountains, hence both mountains will have their heights decrease by 1 per explosion. Determine the minimum number of explosions required to make mountain range A look exactiy like B, or return -1 if it's not possible.
+ CONSTRAINTS .1<=M<=10^5
+ .0<=Hi<= 10^9
+* 0<=Gi<= 10^[
+INPUT SPECIFICATIONS • Input1:- the number of mountains in the mountain range, M
+ • Input2:- the heights of mountain range A, H1.....HM
+* Input3:- the heights of mountain range B, G1....Gm
+OUTPUT SPECIFICATIONS ◦ output- integer denoting the minimum number of explosions needed
+ EXAMPLE Given, .M=3
+•H={2,3,2}
+G={1,1,1}
+After explosion between 0th and 1st index H=(1,2,2) After explosion between 1st and 2nd index, H=(1,1,1)
+ Now H=G Therefore the minimum number of explosions required should be 2
+https://chatgpt.com/s/t_6a8232745bc08191a5ec2a9ede035cce'''
 
+def terr(M,H,G):
+  if M==1:
+    if H[0]==M[0]:
+      return 0
+    else:
+      return -1
+  explosions=H[0]-G[0]
+  if explosions<0:
+    return -1
+  total=explosions
+  for i in range(1,M):
+    current=H[i]-G[i]-explosions
+    if current<0:
+      return -1
+    explosions=current
+    total+=explosions
+  if explosions!=H[M-1]-G[M-1]:
+    return -1
+  return total
