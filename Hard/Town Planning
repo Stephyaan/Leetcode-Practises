@@ -1,0 +1,13 @@
+'''Problem Statement You are tasked with designing a town planning system that models the layout of a new town. The town consists of plots arranged in a grid pattern (N x M). 
+Each plot can be empty or contain one of several building types:  Residential (R)  Commercial (C)  Industrial (I)  Park (P)  Road (-) Requirements: 
+1. Initialization: Create a town grid of size N x M initialized with empty plots (denoted by '.'). 
+2. Place Buildings: Implement functionality to place buildings on specific plots. 
+3. Validation: Ensure buildings are placed according to these rules: 
+o Residential (R) cannot be adjacent to Industrial (I) o Parks (P) should have at least one adjacent Park or Road 
+o Commercial (C) must be accessible via roads from at least one town edge 
+o Height of newly proposed buildings on a particular plot should be proportional to the existing buildings. 
+(i.e, there should not be much height difference between the surrounding buildings. Identify the best spot among all the available plots in that category) 
+4. Score Calculation: Calculate a score based on: o +10 for each Residential adjacent to a Park 
+o +5 for each Commercial accessible from town edge o -20 for each Industrial adjacent to Residential 
+5. Find Path: Implement a function to find if there's a road path between two given coordinates. 
+https://chatgpt.com/s/t_6a8c9ab98e5481919d1238f3c73c95af'''
