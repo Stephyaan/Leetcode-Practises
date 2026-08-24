@@ -1,0 +1,6 @@
+'''Problem Statement: You are given a binary message 'S' of length 'N', which is an encoded version of a lowercase alphabetic string. 
+You also have an array 'A' of 'M' binary strings, each representing a 5-bit binary string of a lowercase alphabet. The message 'S' arrived in a scrambled manner. 
+The task is to find the lexicographically smallest possible lowercase alphabetic string that the message could represent.Example:
+Input: S = "0000100101"' , N = 10 , A = {"00000", "00001", "00010", "00011"}' , M = 4 ; Output: 'bd'
+Input:S = "0000100101"', N = 10, A = {"01010", "10000", "01100", "00000"}', M = 4 ; Output: 'ab' 
+https://chatgpt.com/s/t_6a8c995ff56c8191bd4f5228b10874e2'''
