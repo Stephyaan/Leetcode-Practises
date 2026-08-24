@@ -1,0 +1,36 @@
+''' GIVEN Strings A1..Ac and B1....Bc are said to be a special match if and only if:
+ • Bi and Aj are adjacent characters in the alphabet for all i 1 <=i<= C 
+o exc 'a" and 'b' are adjacent characters in the alphabet
+ CHALLENGE 
+Given two strings S1...SN and Q1...QM made of lowercase English letters. find the length of the longest subsequences of S and Q which are a special match. Return 0 if not possible.
+OUTPUT SPECIFICATION
+ • output: the length of the longest subsequences of S and Q which are a special match. Return 0 if not possible.
+ K
+EXAMPLE Given, .N=3
+ KINEMA
+.S="abc
+.M=3
+Q="bqd"
+For the given strings, the longest subsequences of S and Q which are a special match are: 
+* S'= "ac" (formed by deleting "b" from S)
+* Q'="bd" (formed by deleting "q" from Q)
+ Hence the required output is 2
+Given, .N=4
+ .S="adaa
+•M=3
+.Q = "cbb"
+For the gven strings, the longest subsequence of S and Q which are a special match are: •S ="daa"
+ .Q = 'cbb"
+Hence the required output is 3. https://chatgpt.com/s/t_6a82324e5a5c8191908972307717188a '''
+
+def longest(s,q):
+  n=len(s)
+  m=len(q)
+  dp=[[0]*(m+1) for _ in range(n+1)]
+  for i in range(1,n+1):
+    for j in range(1,m+1):
+      if abs(ord(s[i-1])-ord(q[j-1]))==1:
+        dp[i][j]=dp[i - 1][j - 1] + 1
+      else:
+        dp[i][j]=max(dp[i-1][j]-dp[i][j-1])
+  return dp[n][m]
