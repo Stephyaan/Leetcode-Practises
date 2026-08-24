@@ -1,0 +1,32 @@
+'''GIVEN An M×N matrix A1,1.....AM,N with only values 0 or 1
+CHALLENGE Find the largest binary number that can be created by picking the values in each cell of the matrix tor each digit in the binary number, The values of each cell can be picked at most once
+CONSTRAINTS • 1 <=M<=100
+.1<=N<=100
+INPUT SPECIFICATION
+* input1: the number of rows, M
+* input2: the number of columns,N
+* input3: the matrix A
+OUTPUT SPECIFICATION • output the remainder of the largest binary number required after division by 1,000,000,007,
+EXAMPLE 2Given, M=3
+N=2
+. A = {{0,0},{0,0},{1,0}}
+The given matrix is,
+The largest binary number possible by picking the values in each
+cell is
+(100000)2, formed by cells in the following order (3, 1),(3,2),(1,2),
+(2,1)(1,1),(2,2)
+Which equals 32
+Therefore, the output required is 32% 100000007=32
+https://chatgpt.com/s/t_6a8232da2bd08191b9dd7e8999c56a0a'''
+
+def largBin(m,n,a):
+  mod=1000000007
+  ones=0
+  for row in a:
+    for x in row:
+      if x==1:
+        ones+=1
+total=m*n  
+if ones==0:
+    return -1
+  return (pow(2,total,mod)-pow(2,total-ones,mod))%mod
