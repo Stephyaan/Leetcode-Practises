@@ -1,0 +1,6 @@
+'''Problem 3: Rectangle Stacking Problem (Hard)
+Problem Statement:
+Given a list of rectangles with width and height, the task was to stack these rectangles to maximize the height of the stacked rectangles. Each rectangle must have a width and height less than or equal to the rectangle below it.
+Example: Input: Rectangles = [(1, 2), (2, 3), (3, 4), (4, 5)] ; Output: 4
+Input: Rectangles = [(1, 2), (2, 1), (3, 4), (4, 3)] ; Output: 2
+https://chatgpt.com/s/t_6a8c998c02e081918ce865163db0c31e'''
