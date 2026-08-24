@@ -1,0 +1,11 @@
+'''qn. a thief is robbing a store and carry a maximal weight of W into his knapsack. There are N items and ith item weighs wi and value is vi.  
+Considering the constraints of the maximum weight a knapsack can carry, you have to find and return the max value a thief can generate by stealing items '''
+https://chatgpt.com/s/t_6a821654b9bc819192359198ee35ffe0
+
+def knap(W,w,v):
+  n=len(w)
+  dp=[0]*(W+1)
+  for i in range(n):
+    for weight in range(W,w-1,-1):
+      dp[weight]=max(dp[weight],dp[weight-w[i]]+v[i])
+ return dp[W]
