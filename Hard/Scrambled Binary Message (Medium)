@@ -8,7 +8,7 @@ https://chatgpt.com/s/t_6a8c995ff56c8191bd4f5228b10874e2'''
 def scram(s,n,a,m):
   #add the 5-bit seperated of s to dict 
   count={}
-  for i in range(0,n,5):
+  for i in range(0,n,5):   #each 5
     code=s[i:i+5]
     count[code]=count.get(code,0)+1
 
