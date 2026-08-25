@@ -3,7 +3,8 @@ Each plot can be empty or contain one of several building types:  Residential
 1. Initialization: Create a town grid of size N x M initialized with empty plots (denoted by '.'). 
 2. Place Buildings: Implement functionality to place buildings on specific plots. 
 3. Validation: Ensure buildings are placed according to these rules: 
-o Residential (R) cannot be adjacent to Industrial (I) o Parks (P) should have at least one adjacent Park or Road 
+o Residential (R) cannot be adjacent to Industrial (I) 
+o Parks (P) should have at least one adjacent Park or Road 
 o Commercial (C) must be accessible via roads from at least one town edge 
 o Height of newly proposed buildings on a particular plot should be proportional to the existing buildings. 
 (i.e, there should not be much height difference between the surrounding buildings. Identify the best spot among all the available plots in that category) 
@@ -11,3 +12,60 @@ o Height of newly proposed buildings on a particular plot should be proportional
 o +5 for each Commercial accessible from town edge o -20 for each Industrial adjacent to Residential 
 5. Find Path: Implement a function to find if there's a road path between two given coordinates. 
 https://chatgpt.com/s/t_6a8c9ab98e5481919d1238f3c73c95af'''
+
+#create grid
+def create(n,m):
+  return [['.' for _ in range(m)] for _ in range(n)]   #empty plots
+
+#find neighbours adj
+def neigh(grid,r,c):
+  n=len(grid)  #row count
+  m=len(grid[0])  #col count
+  res=[]
+  dir=[(0,1),(0,-1),(1,0),(-1,0)]   #adj positions
+  for dr,dc in dir:
+    nr=dr+r
+    nc=dc+c
+    if 0<=nr<n and 0<=nc<m:  #within no.of rows&cols
+      res.append((nr,nc))
+  return res
+
+#cell must be empty
+def valid_placement(grid,r,c,building):
+  if grid[r][c] != '.':
+    return False
+
+  
+  nearby=neighbours(grid,r,c)
+  
+  #R not adj to I
+  if building=="R":
+    for nr,nc in neighbours:
+      if grid[nr][nc]=="I":
+        return False
+
+ if building=="I":
+  if nr,nc in neighbours:
+    if grid[nr][nc]=="R":
+      return False
+
+  #park adj to road or park
+  if building=="P":
+    found=False #look frwd for park or road adjacent
+    
+    for nr,nc in nearby:
+      if grid[nr][nc]=="P" or grid[nr][nc]=='-':
+        return True
+
+    if not found:  
+      return False
+  
+  return True
+
+#parks min 1 adj road
+def placement(grid,r,c,building):
+  if valid_placement(grid,r,c,building):
+    grid[r][c]=building
+    return True
+  
+  return False
