@@ -4,3 +4,30 @@ The task is to find the lexicographically smallest possible lowercase alphabetic
 Input: S = "0000100101"' , N = 10 , A = {"00000", "00001", "00010", "00011"}' , M = 4 ; Output: 'bd'
 Input:S = "0000100101"', N = 10, A = {"01010", "10000", "01100", "00000"}', M = 4 ; Output: 'ab' 
 https://chatgpt.com/s/t_6a8c995ff56c8191bd4f5228b10874e2'''
+
+def scram(s,n,a,m):
+  #add the 5-bit seperated of s to dict 
+  count={}
+  for i in range(0,n,5):
+    code=s[i:i+5]
+    count[code]=count.get(code,0)+1
+
+  #find the bin nos from array that are present
+  chars=[]
+  
+  for i in range(m):
+    code=a[i]
+    value=int(code,2)
+    ch=chr(ord('a')+value)
+    if code in count:
+      chars.append((ch,value))
+  
+  #sort to get the right order
+  chars.sort()
+
+  #final answer
+  answers=""
+  for ch, value in chars:
+    answers+=ch*count[code]
+
+  return answers
