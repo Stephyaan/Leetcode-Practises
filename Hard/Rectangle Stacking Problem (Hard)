@@ -1,6 +1,22 @@
 '''Problem 3: Rectangle Stacking Problem (Hard)
 Problem Statement:
-Given a list of rectangles with width and height, the task was to stack these rectangles to maximize the height of the stacked rectangles. Each rectangle must have a width and height less than or equal to the rectangle below it.
+Given a list of rectangles with width and height, the task was to stack these rectangles to maximize the height of the stacked rectangles. 
+Each rectangle must have a width and height less than or equal to the rectangle below it.
 Example: Input: Rectangles = [(1, 2), (2, 3), (3, 4), (4, 5)] ; Output: 4
 Input: Rectangles = [(1, 2), (2, 1), (3, 4), (4, 3)] ; Output: 2
 https://chatgpt.com/s/t_6a8c998c02e081918ce865163db0c31e'''
+
+def recstack(r):
+  n=len(r)
+
+  #sort;first by width, then height
+  r.sort()
+  
+  dp=[1]*n
+  for i in range(n): #curr rect 
+    for j in range(i): #prev rect
+      if (r[j][0]<=r[i][0] and r[j][1]<=r[i][1]):  #compare widths with prev with and height with prev height
+        dp[i]=max(dp[i],dp[j]+1)  #count of rect
+
+  return max(dp)
+
