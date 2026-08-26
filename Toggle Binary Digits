@@ -1,0 +1,42 @@
+Problem: Toggle Binary Digits
+Given a positive integer N. Convert N into its binary representation.
+Toggle every binary digit:
+0 → 1
+1 → 0
+Convert the toggled binary number back to decimal.
+Return the resulting decimal value.
+https://chatgpt.com/s/t_6a8f314e0b0c81918aa0967996d8cea8
+
+def toBin(num):  #This converts decimal → binary.
+  bin_num=""
+  while num:
+    rem=num%2
+    bin_num+=str(rem)
+    num//=2
+  return int(bin_num[::-1]
+
+def toggleBin(bin_num):  #toggles the binary no.
+  bin_str=str(bin_num)
+  toggle_bin=""
+  for i in bin_str:
+    if i=="0":
+      toggle_bin+="1"
+    else:
+      toggle_bin+="0"
+  return toggle_bin
+
+def toDec(bin_num):   #converting binary to decimal
+  exp=0
+  res=0
+  for in range(len(bin_num),-1,-1):
+    if bin_num[i]=="1":
+      res+=2**exp
+      exp+=1
+    else:
+      exp+=1
+      continue
+  return res
+
+bin_num=toBin(num)
+toggle_bin=toggleBin(bin_num)
+print(toDec(bin_num))
