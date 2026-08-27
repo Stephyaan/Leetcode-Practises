@@ -23,6 +23,7 @@ def parenth(parenthesis):
 or Count MAtching Pairs
 s=input("enter the parenthesis string:")
 def parValid(s):
+      stack=[]
       count=0
       for i in s:
         if stack and i=')' and stack[-1]='(':
