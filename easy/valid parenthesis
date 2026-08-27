@@ -1,0 +1,37 @@
+Longest Valid Parentheses
+Problem Statement: Given a string containing only opening ( and closing ) parentheses, find the length of the longest valid (well-formed) parentheses substring.
+A valid parentheses string means every opening parenthesis has a corresponding closing parenthesis in the correct order.Examples
+Input:(() ; The longest valid part is:()
+So:Output: 2
+https://chatgpt.com/s/t_6a8ffeaefe2c81918ee3348fb5b930e0
+
+def parenth(parenthesis):
+  stack=[-1]
+  max_len=0
+  for i in range(len(parenthesis)):
+    if s[i]=='(':
+      stack.append(i)
+    else:
+      stack.pop()
+
+      if stack:
+        stack.append(i)
+      else:
+        max_len=max(max_len,i-stack[-1])  #ith position-len of stack=length
+    return max_len
+
+or Count MAtching Pairs
+s=input("enter the parenthesis string:")
+def parValid(s):
+      count=0
+      for i in s:
+        if stack and i=')' and stack[-1]='(':
+          stack.pop()
+        else:
+          stack.append(i)
+          count+=2
+return count
+                         
+        
+
+      
