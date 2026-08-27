@@ -27,10 +27,11 @@ def parValid(s):
       count=0
       for i in s:
         if stack and i=')' and stack[-1]='(':
-          stack.pop()
+          stack.pop()   #pair found
+          count+=2   #increment count
         else:
           stack.append(i)
-          count+=2
+          
 return count
                          
         
