@@ -1,0 +1,23 @@
+Question: Check if a String is a Palindrome
+Problem Statement:Given a string S, determine whether the string is a palindrome.A palindrome is a string that reads the same from left to right and right to left.
+Examples: Input:  madam ; Output: Palindrome
+Input:  hello ; Output: Not a palindrome , Because: hello -> olleh, They are different.
+https://chatgpt.com/s/t_6a8fec21cb648191a1aac8f58f12197e
+
+word=input("enter the word:")
+
+def isPallin(word):
+  i=0  #from start
+  j=len(word)-1   #from end
+
+  while i<=j:
+    if word[i]!=word[j]:
+      return False
+
+    i+=1
+    j-=1
+
+if isPallin(word):
+  return ("Pallindrome")
+else:
+  return ("Not Pallindrome")
