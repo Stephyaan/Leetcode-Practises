@@ -1,0 +1,31 @@
+Question: Remove Duplicates and Reverse the List
+Problem Statement: Given a list of integers, remove all duplicate elements while keeping the first occurrence of each element.
+Then reverse the resulting list. Return/print the final list.Example:
+Input: [2, 1, 4, 1, 2] ; First remove duplicates: [2, 1, 4] ; Then reverse: [4, 1, 2] ; Output: [4, 1, 2]
+https://chatgpt.com/s/t_6a8ffdde3bb48191b58bd548bead164d
+
+#easiest code
+def remDup(a):
+  ad=[]
+  for i in a:
+    if i not in ad:
+      ad.append(i)
+
+#slicing from end
+res=ad[::-1]
+return res
+
+or
+https://chatgpt.com/s/t_6a8ffe04689c8191b6c71c5d28a9dbed
+
+lst = [2,1,4,1,2]
+uni = []
+for i in lst:
+    if i not in uni:
+        uni.append(i)
+l,r = 0, len(uni)-1
+while l<r:
+    uni[l],uni[r] = uni[r],uni[l]
+    l+=1
+    r-=1
+print(uni)
