@@ -1,0 +1,24 @@
+Longest Valid Parentheses: Given a string s containing only '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
+A valid parentheses string is one where every opening parenthesis '(' has a matching closing parenthesis ')'.
+Examples-Input:  s = "(()" ; Output: 2 , The longest valid substring is: (). So the answer is 2.
+Input:  s = ")()())" ; Output: 4, The longest valid substring is: ()(). So the answer is 4.
+Input: s = "" ; Output: 0
+https://chatgpt.com/s/t_6a8ffeaefe2c81918ee3348fb5b930e0
+
+parenthesis=input("enter the parenthesis string:")
+
+def validPar(parenthesis):
+  stack=[-1]
+  count=0
+
+  for i in parenthesis:
+    if stack and i==')' and stack[-1]='(':  #pair found;then pop it and set count of pair to 2
+      stack.pop()
+      count+=2
+    else:
+      stack.append(i)
+
+  return count
+
+print(validPar(parenthesis))
+      
