@@ -9,3 +9,11 @@ Explanation: "pro" is prefix of "problem" which is the 2nd and the 6th word in t
 Example 3: Input: sentence = "i am tired", searchWord = "you" ; Output: -1
 Explanation: "you" is not a prefix of any word in the sentence.
 https://chatgpt.com/s/t_6a92df38896c81918de3a3179078c2a0
+
+def search(sentence,searchWord):
+  words=sentence.split()  #split by default with space, so each word in sentence seperated and gives a list of all words
+  for i in range(len(words)):
+    if words[i].startswith(searchWord):  #1st word in words[] starts with searchWord->startsWord bcz prefix given, so only start needed to look
+      return i+1
+
+  return -1
