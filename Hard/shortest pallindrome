@@ -1,0 +1,21 @@
+shortest pallindrome: You are given a string `s`. You can convert `s` to a palindrome by adding characters in front of it.
+Return *the shortest palindrome you can find by performing this transformation*.
+**Example 1:** Input: s = "aacecaaa"; Output: "aaacecaaa"
+**Example 2:**Input: s = "abcd" ; Output: "dcbabcd"
+https://chatgpt.com/s/t_6a933ecfe82481918acc81e2d5d84320
+
+class Solution(object):
+    def shortestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        for i in range(len(s)-1,-1,-1):
+           prefix=s[:i+1]
+
+           if prefix==prefix[::-1]:   #shortest pallindrom substring 
+              remaining=s[i+1:]       #new start point 
+              return remaining[::-1]+s   #reverse end rem part and add to beginning part to bcome pallindrome
+
+        return ""
