@@ -8,3 +8,27 @@ Example 2: Input: n = 3 ; Output: 3, Explanation: There are three ways to climb 
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 https://neetcode.io/problems/climbing-stairs/question?list=neetcode150
+
+#not optimal
+class Solution:
+    def climbStairs(self, n: int) -> int:
+
+        def dfs(i):  #each step
+            if i >= n:  
+                return i == n  #return 1 if i=n,0 if i>n
+            return dfs(i + 1) + dfs(i + 2)   #dfs(i+1)->1 step, dfs(i+2)->2 step ; return this total no.of steps sums
+
+        return dfs(0)
+
+#or
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        one,two=1,1  #one,two are steps
+
+        for i in range(n-1):
+            temp=one
+            one=one+two
+            two=temp
+
+        return one
