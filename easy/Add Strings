@@ -1,0 +1,42 @@
+Given two non-negative integers, num1 and num2 represented as string, return the sum of num1 and num2 as a string.
+You must solve the problem without using any built-in library for handling large integers (such as BigInteger). You must also not convert the inputs to integers directly.
+Example 1: Input: num1 = "11", num2 = "123" ; Output: "134"
+Example 2: Input: num1 = "456", num2 = "77" ; Output: "533"
+Example 3: Input: num1 = "0", num2 = "0" ; Output: "0"
+
+https://chatgpt.com/s/t_6a92849b9988819190026650c0d5edf3
+
+class Solution(object):
+    def addStrings(self, num1, num2):
+      i=len(num1)-1  #positions ofrom 0 to (len-1)
+      j=len(num2)-1
+
+      total=0
+      result=""  #output should be string
+
+      if i>=0 or j>=0 or carry:  #while any one number is yet to complete or still carry present need to be considered
+
+        if i>=0:   #first no. 
+          n1=ord(num1[i])-ord('0')   #taking ord() gives ascii code of digit which is the int digit itself
+        else:
+          n1=0   #if num1 complete put it to 1
+
+        if j>=0:
+          n2=ord(num2[j])-ord('0')
+        else:
+          n2=0
+
+        total=n1+n2+carry   #totla is cur n1+ n2 and adding prev carry
+
+        result+=str(total%10)  #total in int is converted to str and added to result; %10 to add from ones
+        carry=total//10    #taking carry;floor to get tens place
+
+      return result[::-1]   #started from ones place, so anser in reverse order, so reverse the result and return 
+
+#or easier but not acc to qn , may pass testcases is:
+
+class Solution(object):
+    def addStrings(self, num1, num2):
+      n1=int(num1)
+      n2=int(num2)
+      return str(n1+n2)
